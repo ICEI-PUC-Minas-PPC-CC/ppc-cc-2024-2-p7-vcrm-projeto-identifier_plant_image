@@ -69,7 +69,6 @@ O projeto consiste em desenvolver um sistema baseado em inteligência artificial
 
 ### Requisitos Tecnológicos
 - **Linguagens e Ferramentas**: Python, TensorFlow, OpenCV, Flask/Django.  
-- **Banco de Dados**: MongoDB ou PostgreSQL.  
 - **Infraestrutura**: Serviços em nuvem como AWS, Google Cloud ou Azure.  
 - **Integração**: APIs para coleta de dados de redes sociais e plataformas externas.
 

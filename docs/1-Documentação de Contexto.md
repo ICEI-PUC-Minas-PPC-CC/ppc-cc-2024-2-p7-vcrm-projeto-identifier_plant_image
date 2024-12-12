@@ -1,44 +1,69 @@
-# Introdução
+### Apresentação do Projeto: Identificação de Plantas por Imagem  
 
-A proposta envolve a coleta de imagens de plantas provenientes de diversas fontes, como redes sociais, Google, plataformas como o Kaggle e outros datasets especializados. Essas imagens serão processadas e analisadas com base em características como tipos de plantas, cores, formatos das folhas, tipos de flores, entre outros atributos visuais. Utilizando técnicas de machine learning e inteligência artificial, o sistema será treinado para reconhecer diferentes espécies de plantas com precisão, garantindo uma identificação eficaz e confiável.
+Este projeto tem como objetivo principal identificar espécies de plantas a partir de imagens utilizando aprendizado de máquina e redes neurais convolucionais (CNN). O sistema foi projetado para processar e classificar imagens em oito categorias distintas com alta precisão.
 
-## Problema
-A problemática que levou à proposta de coletar e analisar imagens de plantas utilizando inteligência artificial e machine learning está relacionada à dificuldade e ineficiência nos métodos tradicionais de identificação de espécies vegetais. A identificação manual por especialistas, embora precisa, é frequentemente lenta, limitada pelo conhecimento humano e inacessível para o público geral. Isso é especialmente crítico em contextos como preservação ambiental, agricultura, jardinagem e controle de espécies invasoras, onde o reconhecimento rápido e confiável de plantas é essencial. Além disso, a ampla diversidade de espécies e a semelhança visual entre algumas delas tornam o processo ainda mais desafiador, demandando soluções automatizadas que possam lidar com um grande volume de dados visuais de forma eficiente.
+---
 
+#### **Introdução**  
+A proposta envolve o uso de técnicas de visão computacional para identificar plantas com base em características visuais, como formato das folhas, tipos de flores e outras propriedades específicas. Essa solução automatizada visa superar os desafios da identificação manual, fornecendo um método acessível, rápido e confiável para diversos públicos, como pesquisadores, agricultores e entusiastas da jardinagem.
 
-## Objetivos
+---
 
-Reconhecimento de Plantas por Foto: O projeto visa a criação de um modelo de reconhecimento que pode ser utilizado como uma feature que dispositivos IoT integrem, como por exemplo acesso a câmeras para capturar imagens de plantas. Essas fotos são então processadas pelo modelo criado neste projeto de Visão Computacional, permitindo um reconhecimento da espécie. Esta abordagem auxilia em integrações em que se beneficiem deste tipo de proposta.
+#### **Hierarquia do Diretório do Projeto**  
 
+O projeto foi estruturado da seguinte forma:  
+```
+.
+├── data
+│   └── flowers
+│       ├── daisy
+│       ├── dandelion
+│       ├── rose
+│       ├── sunflower
+│       ├── tulip
+│       ├── orchid
+│       ├── lavender
+│       └── hydrangea
+├── data.pickle
+├── detec.py
+├── myclassifier.py
+├── my_model.h5
+├── requirements.txt
+└── utils.py
+```
 
-## Público-Alvo
+---
 
-O público-alvo desse projeto pode abranger diversos grupos interessados na identificação e análise de plantas:
+#### **Passos para Execução do Projeto**
 
-1. **Pesquisadores e acadêmicos**  
-   - Botânicos, biólogos e outros cientistas que estudam a biodiversidade e precisam de ferramentas para identificar espécies com rapidez e precisão.
+1. **Instale as Dependências**  
+   Antes de executar qualquer script, instale as dependências do projeto usando o seguinte comando no terminal:  
+   
+   > pip install -r requirements.txt
 
-2. **Agricultores e profissionais da agricultura**  
-   - Pessoas envolvidas na produção agrícola, que poderiam usar o sistema para identificar pragas, plantas daninhas ou cultivares específicos.
+2. **Faça o Download dos Arquivos Necessários**  
+   Acesse e faça o download dos seguintes arquivos no [Google Drive](https://drive.google.com/drive/u/2/folders/10GnSyr6heh_wUFy9MQA39cm5VyOTo1ST):  
+   - **`data.pickle`**: Contém os dados pré-processados (imagens e rótulos).  
+   - **`my_model.h5`**: Modelo treinado e salvo para classificação. 
+   - **`data`** : Contém o dataset de imagens para treinamento e teste.
 
-3. **Ambientalistas e organizações de conservação**  
-   - Grupos que trabalham na preservação da biodiversidade e no monitoramento de ecossistemas para identificar espécies ameaçadas ou invasoras.
+3. **Estruture o Diretório**  
+   Certifique-se de que a estrutura de diretórios siga o padrão listado acima, colocando o dataset dentro da pasta `data/flowers`.
 
-4. **Entusiastas da jardinagem**  
-   - Amadores e profissionais que precisam identificar plantas para cuidados específicos ou planejamento de jardins.
+4. **Execute os Scripts**  
+   - **`utils.py`**: Realiza o pré-processamento das imagens e cria o arquivo `data.pickle`.  
+   - **`myclassifier.py`**: Treina o modelo utilizando CNN e salva o modelo treinado em `my_model.h5`.  
+   - **`detec.py`**: Avalia o modelo, realiza predições no conjunto de teste e exibe os resultados.
 
-5. **Estudantes e educadores**  
-   - Pessoas interessadas em aprender sobre botânica ou utilizar a ferramenta como apoio no ensino e aprendizado.
+---
 
-6. **Empresas de tecnologia e agricultura**  
-   - Organizações que desenvolvem soluções para o setor de agritech, podendo integrar essa tecnologia em seus produtos ou serviços.
+#### **Resultados Alcançados**  
+- **Acurácia do Modelo**: 96% no conjunto de teste.  
+- **Validação Visual**: As predições são apresentadas com comparações entre a classe real e a prevista, permitindo uma análise visual do desempenho.  
 
-7. **Turistas e aventureiros**  
-   - Pessoas que frequentam parques, florestas ou áreas naturais e desejam identificar espécies de plantas de forma prática durante suas atividades ao ar livre.
+---
 
-8. **Instituições de saúde**  
-   - Profissionais que trabalham com fitoterapia ou uso de plantas medicinais, buscando identificar espécies específicas com propriedades terapêuticas.
+#### **Link para os Arquivos do Projeto**  
+[Acesse os arquivos necessários no Google Drive](https://drive.google.com/drive/u/2/folders/10GnSyr6heh_wUFy9MQA39cm5VyOTo1ST)  
 
-O projeto pode ser adaptado para atender às necessidades específicas de cada um desses grupos, oferecendo uma solução versátil e acessível.
-
-
+Esses arquivos incluem o dataset, os dados pré-processados, o modelo treinado e as validações realizadas durante o desenvolvimento do projeto.

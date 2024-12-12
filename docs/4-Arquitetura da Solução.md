@@ -22,12 +22,7 @@ A solução implementada conta com os seguintes módulos:
   - **Treinamento de Modelo**: O modelo é treinado utilizando redes neurais convolucionais (CNNs), com uma arquitetura que inclui camadas de convolução e pooling para extração de características das imagens.
   - **Avaliação do Modelo**: O modelo é avaliado com um conjunto de dados de teste para verificar a precisão e confiabilidade das previsões.
 
-- **Integração com Dispositivos IoT**: O modelo treinado é integrado a dispositivos IoT, como câmeras que capturam imagens de plantas, permitindo que o sistema identifique e classifique as espécies em tempo real.
-  - **Aplicação IoT**: Câmeras conectadas a dispositivos IoT capturam imagens das plantas e as enviam para o modelo de reconhecimento para análise.
-  
-- **Hospedagem e Deploy**: A aplicação é hospedada em um ambiente de nuvem para garantir a acessibilidade e escalabilidade da solução.
-  - **Firebase**: Utilizado para armazenar e gerenciar dados, como registros de plantas e classificações.
-  - **GCP (Google Cloud Platform)**: Hospedagem do modelo e infraestrutura de backend, permitindo a execução e o treinamento do modelo de forma eficiente.
+
 
 > **Links Úteis**:
 >
@@ -37,14 +32,11 @@ A solução implementada conta com os seguintes módulos:
 
 ## Tecnologias Utilizadas
 
-A solução é composta por um conjunto de tecnologias e ferramentas que permitem a coleta de dados, treinamento do modelo de aprendizado de máquina, e integração com dispositivos IoT. As principais tecnologias incluem:
+A solução é composta por um conjunto de tecnologias e ferramentas que permitem a coleta de dados, treinamento do modelo de aprendizado de máquina. As principais tecnologias incluem:
 
 - **Python**: Linguagem de programação usada para implementar o modelo e os scripts de pré-processamento e treinamento.
 - **TensorFlow/Keras**: Frameworks de aprendizado de máquina utilizados para construir e treinar o modelo de reconhecimento de plantas.
 - **OpenCV**: Biblioteca de visão computacional para o pré-processamento das imagens, como redimensionamento e conversão de formatos.
-- **Firebase**: Para armazenar dados relacionados às plantas e permitir a integração com dispositivos IoT.
-- **Google Cloud Platform (GCP)**: Infraestrutura de nuvem utilizada para hospedar e executar o modelo de aprendizado de máquina.
-- **IoT Devices (Câmeras)**: Dispositivos conectados que capturam imagens de plantas para análise em tempo real pelo modelo.
 
-Esse é o objetivo final do projeto.
+
 

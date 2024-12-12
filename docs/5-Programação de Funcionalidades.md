@@ -1,15 +1,67 @@
-# Programação de Funcionalidades
+### Programação de Funcionalidades  
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
+Este projeto foi estruturado com base em módulos que desempenham funções específicas para a identificação de plantas por meio de imagens. A seguir, apresentamos a programação das funcionalidades divididas por arquivos:
 
-Implementação do sistema descritas por meio dos requisitos funcionais e/ou não funcionais. Deve relacionar os requisitos atendidos os artefatos criados (código fonte) além das estruturas de dados utilizadas e as instruções para acesso e verificação da implementação que deve estar funcional no ambiente de hospedagem.
+---
 
-Para cada requisito funcional, pode ser entregue um artefato desse tipo
+#### **1. `utils.py` - Utilitários para Manipulação de Dados**  
+Este módulo é responsável por coletar, processar e preparar os dados necessários para o treinamento e teste do modelo.  
 
-> **Links Úteis**:
->
-> - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
-> - [JSON Tutorial](https://www.w3resource.com/JSON)
-> - [JSON Data Set Sample](https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html)
-> - [JSON - Introduction (W3Schools)](https://www.w3schools.com/js/js_json_intro.asp)
-> - [JSON Tutorial (TutorialsPoint)](https://www.tutorialspoint.com/json/index.htm)
+##### Funcionalidades:  
+- **`make_data()`**  
+  - Carrega as imagens de diferentes categorias a partir do diretório `data/flowers`.  
+  - Pré-processa as imagens (redimensionamento, conversão de cores e normalização).  
+  - Associa cada imagem ao rótulo correspondente com base na categoria.  
+  - Salva os dados pré-processados no arquivo `data.pickle`.  
+
+- **`load_data()`**  
+  - Carrega os dados armazenados no arquivo `data.pickle`.  
+  - Separa as imagens (*features*) e os rótulos (*labels*).  
+  - Normaliza os valores das imagens para o intervalo `[0, 1]`.  
+  - Retorna os dados prontos para o treinamento ou avaliação do modelo.  
+
+---
+
+#### **2. `myclassifier.py` - Treinamento do Classificador**  
+Este módulo cuida da construção e treinamento do modelo de rede neural convolucional (CNN).  
+
+##### Funcionalidades:  
+- **Carregamento dos Dados**  
+  - Utiliza a função `load_data()` para carregar as imagens e rótulos.  
+  - Divide os dados em conjuntos de treinamento e teste (90% treinamento, 10% teste).  
+
+- **Construção do Modelo**  
+  - Define a arquitetura de uma CNN utilizando o *TensorFlow*.  
+  - Inclui camadas convolucionais, pooling e densas, culminando em uma saída de 8 classes (*softmax*).  
+
+- **Treinamento do Modelo**  
+  - Compila o modelo com o otimizador Adam e a função de perda `sparse_categorical_crossentropy`.  
+  - Treina o modelo por 10 épocas com um *batch size* de 100.  
+  - Salva o modelo treinado no arquivo `my_model.h5` para reutilização.  
+
+---
+
+#### **3. `detecp.py` - Avaliação e Predição**  
+Este módulo realiza a avaliação do modelo e apresenta previsões em imagens do conjunto de teste.  
+
+##### Funcionalidades:  
+- **Carregamento do Modelo e Dados**  
+  - Carrega o modelo treinado a partir do arquivo `my_model.h5`.  
+  - Utiliza `load_data()` para obter o conjunto de dados.  
+
+- **Avaliação do Modelo**  
+  - Avalia o modelo utilizando o conjunto de teste e apresenta métricas de desempenho, como *accuracy*.  
+
+- **Visualização de Previsões**  
+  - Gera previsões para imagens do conjunto de teste.  
+  - Exibe 9 imagens em um gráfico com as classes reais e preditas para validação visual.  
+  - Salva o gráfico gerado em arquivos `.png`.  
+
+---
+
+### Organização dos Arquivos  
+| Arquivo          | Funcionalidade Principal                                      |  
+|-------------------|---------------------------------------------------------------|  
+| **`utils.py`**    | Pré-processamento das imagens e gerenciamento de dados.       |  
+| **`myclassifier.py`** | Construção, treinamento e salvamento do modelo CNN.         |  
+| **`detecp.py`**   | Avaliação do modelo e visualização das previsões.             |  

@@ -1,77 +1,62 @@
+### Metodologia  
 
-# Metodologia
+O processo de desenvolvimento do projeto de identificação de plantas por imagem foi estruturado em etapas claras e sistemáticas para garantir a coleta, o treinamento e a avaliação do modelo de aprendizado profundo. A seguir, apresentamos as etapas principais da metodologia aplicada:
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+---
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+#### **1. Coleta e Pré-processamento de Dados**  
+A primeira etapa envolveu a criação de um pipeline para coleta e preparação das imagens:  
+- **Fonte de Dados**:  
+  As imagens foram organizadas em um diretório chamado `data/flowers`, subdividido em categorias representando as classes de flores (e.g., *daisy*, *dandelion*, *rose*, etc.).  
+- **Pré-processamento das Imagens**:  
+  - Cada imagem foi lida utilizando a biblioteca OpenCV.  
+  - As imagens foram convertidas do espaço de cores BGR para RGB e redimensionadas para 224x224 pixels.  
+  - Todas as imagens foram normalizadas para valores entre 0 e 1 (divisão por 255).  
+  - As imagens e seus rótulos (índice da categoria correspondente) foram armazenados em uma lista de dados.  
+- **Persistência**:  
+  Os dados pré-processados foram salvos em um arquivo binário `data.pickle` utilizando a biblioteca `pickle`, garantindo reutilização e facilidade de carregamento nas próximas etapas.
 
-## Controle de Versão
+---
 
-A ferramenta de controle de versão adotada no projeto foi o
-[Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-foi utilizado para hospedagem do repositório.
+#### **2. Construção do Modelo de Classificação**  
+Para a criação do modelo de classificação de imagens, as seguintes etapas foram realizadas:  
+- **Carregamento dos Dados**:  
+  As imagens e os rótulos foram carregados a partir do arquivo `data.pickle`, sendo separados em conjuntos de treinamento e teste (90%/10%) utilizando a função `train_test_split` da biblioteca *scikit-learn*.  
+- **Arquitetura da Rede Neural Convolucional (CNN)**:  
+  - Uma CNN foi construída utilizando o framework *TensorFlow*.  
+  - A arquitetura incluiu:  
+    - **Camadas Convolucionais** com filtros de diferentes tamanhos para extrair características visuais.  
+    - **Camadas de Pooling** para redução dimensional, maximizando eficiência computacional.  
+    - Uma **camada densa** final para mapear as características extraídas para 8 classes utilizando a função de ativação *softmax*.  
+- **Treinamento do Modelo**:  
+  - O modelo foi compilado utilizando o otimizador Adam e a função de perda `sparse_categorical_crossentropy`.  
+  - Foram treinadas 10 épocas com um *batch size* de 100, utilizando o conjunto de treinamento.  
+  - O modelo treinado foi salvo em um arquivo `my_model.h5` para utilização posterior.
 
-O projeto segue a seguinte convenção para o nome de branchs:
+---
 
-- `master`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
-- `testing`: versão em testes do software
-- `dev`: versão de desenvolvimento do software
+#### **3. Avaliação e Teste do Modelo**  
+O desempenho do modelo foi avaliado e visualizado com as seguintes abordagens:  
+- **Avaliação do Modelo**:  
+  - O modelo foi carregado a partir do arquivo salvo e avaliado utilizando o conjunto de teste.  
+  - Métricas como *accuracy* foram computadas para verificar o desempenho geral.  
+- **Visualização das Previsões**:  
+  - Nove imagens do conjunto de teste foram selecionadas para visualizar as previsões.  
+  - As classes reais e preditas foram exibidas em gráficos utilizando *Matplotlib*.  
+  - A saída foi salva em arquivos `.png` para documentação.
 
-Quanto à gerência de issues, o projeto adota a seguinte convenção para
-etiquetas:
+---
 
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
+#### **4. Ferramentas Utilizadas**  
+- **Bibliotecas Python**:  
+  - *TensorFlow*: construção e treinamento do modelo CNN.  
+  - *NumPy*: manipulação eficiente de arrays numéricos.  
+  - *OpenCV*: pré-processamento das imagens.  
+  - *Matplotlib*: visualização dos resultados.  
+  - *Scikit-learn*: divisão dos dados em treinamento e teste.  
+- **Persistência e Organização**:  
+  - O pipeline utilizou `pickle` para garantir eficiência no armazenamento e carregamento dos dados.  
 
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
+---
 
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
->  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
-
-## Gerenciamento de Projeto
-
-### Divisão de Papéis
-
-Apresente a divisão de papéis entre os membros do grupo.
-
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-
-### Processo
-
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
-
-### Ferramentas
-
-As ferramentas empregadas no projeto são:
-
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de diagramação
-
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
-
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+Essa metodologia garante uma abordagem eficiente e sistemática para o problema de classificação de imagens, maximizando a reutilização do código e promovendo a facilidade de adaptação para novas classes ou conjuntos de dados.

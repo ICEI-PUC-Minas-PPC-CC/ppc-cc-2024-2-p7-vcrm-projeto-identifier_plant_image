@@ -1,7 +1,6 @@
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+Referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
 
 > **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+> PLANTNET. Identify plants. Disponível em: https://identify.plantnet.org/pt-br. Acesso em: 12 dez. 2024.

@@ -1,67 +1,78 @@
-### Programação de Funcionalidades  
+# Especificações do Projeto
 
-Este projeto foi estruturado com base em módulos que desempenham funções específicas para a identificação de plantas por meio de imagens. A seguir, apresentamos a programação das funcionalidades divididas por arquivos:
+<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
----
+## Visão Geral
 
-#### **1. `utils.py` - Utilitários para Manipulação de Dados**  
-Este módulo é responsável por coletar, processar e preparar os dados necessários para o treinamento e teste do modelo.  
+Nesta parte do documento, será apresentada uma visão detalhada sobre as técnicas e ferramentas utilizadas para a especificação do projeto de reconhecimento de plantas por foto. O objetivo é descrever os métodos escolhidos para alcançar os objetivos do projeto, incluindo a coleta de dados, processamento das imagens, treinamento do modelo e integração com dispositivos IoT. 
 
-##### Funcionalidades:  
-- **`make_data()`**  
-  - Carrega as imagens de diferentes categorias a partir do diretório `data/flowers`.  
-  - Pré-processa as imagens (redimensionamento, conversão de cores e normalização).  
-  - Associa cada imagem ao rótulo correspondente com base na categoria.  
-  - Salva os dados pré-processados no arquivo `data.pickle`.  
+As seguintes etapas e tecnologias serão abordadas:
 
-- **`load_data()`**  
-  - Carrega os dados armazenados no arquivo `data.pickle`.  
-  - Separa as imagens (*features*) e os rótulos (*labels*).  
-  - Normaliza os valores das imagens para o intervalo `[0, 1]`.  
-  - Retorna os dados prontos para o treinamento ou avaliação do modelo.  
+1. **Coleta de Dados**: Estratégias para obtenção de imagens de fontes como redes sociais, Google, Kaggle e outros datasets especializados.
+2. **Pré-processamento das Imagens**: Ferramentas e técnicas para preparar as imagens, incluindo normalização, remoção de ruídos e segmentação.
+3. **Rotulagem e Anotação**: Ferramentas como LabelImg e Roboflow para organizar os dados e associar rótulos às imagens.
+4. **Treinamento do Modelo**:
+   - Arquiteturas de redes neurais (e.g., ResNet, EfficientNet).
+   - Frameworks de aprendizado profundo como TensorFlow e PyTorch.
+5. **Validação e Teste**: Métodos para avaliar a eficácia do modelo, como divisão dos dados e análise de métricas (e.g., precisão e F1-score).
 
----
+Essa abordagem garante que o sistema seja robusto, eficiente e de fácil integração com aplicações reais.
 
-#### **2. `myclassifier.py` - Treinamento do Classificador**  
-Este módulo cuida da construção e treinamento do modelo de rede neural convolucional (CNN).  
 
-##### Funcionalidades:  
-- **Carregamento dos Dados**  
-  - Utiliza a função `load_data()` para carregar as imagens e rótulos.  
-  - Divide os dados em conjuntos de treinamento e teste (90% treinamento, 10% teste).  
+# Definição do Projeto
 
-- **Construção do Modelo**  
-  - Define a arquitetura de uma CNN utilizando o *TensorFlow*.  
-  - Inclui camadas convolucionais, pooling e densas, culminando em uma saída de 8 classes (*softmax*).  
-
-- **Treinamento do Modelo**  
-  - Compila o modelo com o otimizador Adam e a função de perda `sparse_categorical_crossentropy`.  
-  - Treina o modelo por 10 épocas com um *batch size* de 100.  
-  - Salva o modelo treinado no arquivo `my_model.h5` para reutilização.  
+## Descrição Geral  
+O projeto consiste em desenvolver um sistema baseado em inteligência artificial e machine learning para identificar diferentes espécies de plantas a partir de imagens coletadas de diversas fontes, como redes sociais, Google, Kaggle e outros datasets especializados. O sistema utilizará técnicas de análise de imagem para reconhecer características como tipo de planta, formato de folhas, cores e tipos de flores, com o objetivo de fornecer uma identificação precisa e confiável.
 
 ---
 
-#### **3. `detect.py` - Avaliação e Predição**  
-Este módulo realiza a avaliação do modelo e apresenta previsões em imagens do conjunto de teste.  
+## Requisitos
 
-##### Funcionalidades:  
-- **Carregamento do Modelo e Dados**  
-  - Carrega o modelo treinado a partir do arquivo `my_model.h5`.  
-  - Utiliza `load_data()` para obter o conjunto de dados.  
+### Requisitos Funcionais
+1. **Coleta de Imagens**  
+   - O sistema deve permitir a importação de imagens de múltiplas fontes, como redes sociais, plataformas de datasets e uploads manuais.
+   
+2. **Processamento de Imagens**  
+   - Deve realizar o pré-processamento das imagens, incluindo ajuste de resolução, remoção de ruído e normalização.
+   
+3. **Identificação de Plantas**  
+   - O sistema deve identificar as espécies de plantas com base em características visuais (folhas, flores, cores, etc.).
 
-- **Avaliação do Modelo**  
-  - Avalia o modelo utilizando o conjunto de teste e apresenta métricas de desempenho, como *accuracy*.  
+4. **Treinamento de Modelo de IA**  
+   - O sistema deve treinar modelos de machine learning com dados de treinamento variados, garantindo a precisão da identificação.
 
-- **Visualização de Previsões**  
-  - Gera previsões para imagens do conjunto de teste.  
-  - Exibe 9 imagens em um gráfico com as classes reais e preditas para validação visual.  
-  - Salva o gráfico gerado em arquivos `.png`.  
+5. **Exportação de Resultados**  
+   - O sistema deve permitir a exportação dos resultados em formatos como PDF ou CSV.
 
 ---
 
-### Organização dos Arquivos  
-| Arquivo          | Funcionalidade Principal                                      |  
-|-------------------|---------------------------------------------------------------|  
-| **`utils.py`**    | Pré-processamento das imagens e gerenciamento de dados.       |  
-| **`myclassifier.py`** | Construção, treinamento e salvamento do modelo CNN.         |  
-| **`detect.py`**   | Avaliação do modelo e visualização das previsões.             |  
+### Requisitos Não Funcionais
+1. **Desempenho**  
+   - O sistema deve processar uma imagem em menos de 5 segundos para fornecer os resultados da identificação.
+
+2. **Escalabilidade**  
+   - Deve ser capaz de lidar com grandes volumes de dados e aumentar a capacidade com o crescimento da base de usuários.
+
+3. **Confiabilidade**  
+   - O sistema deve manter uma taxa de acurácia mínima de 90% na identificação de espécies.
+
+4. **Compatibilidade**  
+   - Deve ser acessível por dispositivos móveis e desktops, suportando navegadores modernos.
+
+5. **Segurança**  
+   - Garantir que os dados dos usuários e as imagens processadas sejam protegidos, atendendo a normas como LGPD e GDPR.
+
+6. **Disponibilidade**  
+   - O sistema deve estar disponível 24/7 com no máximo 1% de downtime mensal.
+
+---
+
+### Requisitos Tecnológicos
+- **Linguagens e Ferramentas**: Python, TensorFlow, OpenCV, Flask/Django.  
+- **Banco de Dados**: MongoDB ou PostgreSQL.  
+- **Infraestrutura**: Serviços em nuvem como AWS, Google Cloud ou Azure.  
+- **Integração**: APIs para coleta de dados de redes sociais e plataformas externas.
+
+---
+
+Com base nesses requisitos, o projeto será estruturado para atender às necessidades de diferentes públicos e garantir eficiência, precisão e acessibilidade na identificação de plantas.

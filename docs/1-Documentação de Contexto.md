@@ -1,46 +1,44 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+A proposta envolve a coleta de imagens de plantas provenientes de diversas fontes, como redes sociais, Google, plataformas como o Kaggle e outros datasets especializados. Essas imagens serão processadas e analisadas com base em características como tipos de plantas, cores, formatos das folhas, tipos de flores, entre outros atributos visuais. Utilizando técnicas de machine learning e inteligência artificial, o sistema será treinado para reconhecer diferentes espécies de plantas com precisão, garantindo uma identificação eficaz e confiável.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+A problemática que levou à proposta de coletar e analisar imagens de plantas utilizando inteligência artificial e machine learning está relacionada à dificuldade e ineficiência nos métodos tradicionais de identificação de espécies vegetais. A identificação manual por especialistas, embora precisa, é frequentemente lenta, limitada pelo conhecimento humano e inacessível para o público geral. Isso é especialmente crítico em contextos como preservação ambiental, agricultura, jardinagem e controle de espécies invasoras, onde o reconhecimento rápido e confiável de plantas é essencial. Além disso, a ampla diversidade de espécies e a semelhança visual entre algumas delas tornam o processo ainda mais desafiador, demandando soluções automatizadas que possam lidar com um grande volume de dados visuais de forma eficiente.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+Reconhecimento de Plantas por Foto: O projeto visa a criação de um modelo de reconhecimento que pode ser utilizado como uma feature que dispositivos IoT integrem, como por exemplo acesso a câmeras para capturar imagens de plantas. Essas fotos são então processadas pelo modelo criado neste projeto de Visão Computacional, permitindo um reconhecimento da espécie. Esta abordagem auxilia em integrações em que se beneficiem deste tipo de proposta.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
-
-## Justificativa
-
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+O público-alvo desse projeto pode abranger diversos grupos interessados na identificação e análise de plantas:
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, ou diagramas de personas, mapa de stakeholders, ou como o grupo achar mais conveniente.
+1. **Pesquisadores e acadêmicos**  
+   - Botânicos, biólogos e outros cientistas que estudam a biodiversidade e precisam de ferramentas para identificar espécies com rapidez e precisão.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+2. **Agricultores e profissionais da agricultura**  
+   - Pessoas envolvidas na produção agrícola, que poderiam usar o sistema para identificar pragas, plantas daninhas ou cultivares específicos.
+
+3. **Ambientalistas e organizações de conservação**  
+   - Grupos que trabalham na preservação da biodiversidade e no monitoramento de ecossistemas para identificar espécies ameaçadas ou invasoras.
+
+4. **Entusiastas da jardinagem**  
+   - Amadores e profissionais que precisam identificar plantas para cuidados específicos ou planejamento de jardins.
+
+5. **Estudantes e educadores**  
+   - Pessoas interessadas em aprender sobre botânica ou utilizar a ferramenta como apoio no ensino e aprendizado.
+
+6. **Empresas de tecnologia e agricultura**  
+   - Organizações que desenvolvem soluções para o setor de agritech, podendo integrar essa tecnologia em seus produtos ou serviços.
+
+7. **Turistas e aventureiros**  
+   - Pessoas que frequentam parques, florestas ou áreas naturais e desejam identificar espécies de plantas de forma prática durante suas atividades ao ar livre.
+
+8. **Instituições de saúde**  
+   - Profissionais que trabalham com fitoterapia ou uso de plantas medicinais, buscando identificar espécies específicas com propriedades terapêuticas.
+
+O projeto pode ser adaptado para atender às necessidades específicas de cada um desses grupos, oferecendo uma solução versátil e acessível.
+
+

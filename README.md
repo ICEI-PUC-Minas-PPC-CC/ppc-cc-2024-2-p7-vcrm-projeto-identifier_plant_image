@@ -1,19 +1,17 @@
-# TÍTULO DO PROJETO
+# Identifier Plant Image
 
 `PPC-CC: PUC Poços de Caldas - Ciência da Computação`
-`Disciplina: NOME DA DISCIPLINA`
-`2021 - Semestre 1`
+`Disciplina: Visão Computacional e Realidade Aumentada`
+`2024 - Semestre 2`
 
 ## Integrantes
 
-- Jeff Bezos
-- Bill Gates
-- Larry Ellison
-- Mark Zuckerberg
+- Tuanne Assenço
+- Leonardo Moraes
 
 ## Professor
 
-- Mestre Yoda
+- Will Machado
 
 # Documentação
 

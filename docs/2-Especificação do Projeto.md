@@ -2,90 +2,80 @@
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
+## Visão Geral
 
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+Nesta parte do documento, será apresentada uma visão detalhada sobre as técnicas e ferramentas utilizadas para a especificação do projeto de reconhecimento de plantas por foto. O objetivo é descrever os métodos escolhidos para alcançar os objetivos do projeto, incluindo a coleta de dados, processamento das imagens, treinamento do modelo e integração com dispositivos IoT. 
 
-## Personas
+As seguintes etapas e tecnologias serão abordadas:
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+1. **Coleta de Dados**: Estratégias para obtenção de imagens de fontes como redes sociais, Google, Kaggle e outros datasets especializados.
+2. **Pré-processamento das Imagens**: Ferramentas e técnicas para preparar as imagens, incluindo normalização, remoção de ruídos e segmentação.
+3. **Rotulagem e Anotação**: Ferramentas como LabelImg e Roboflow para organizar os dados e associar rótulos às imagens.
+4. **Treinamento do Modelo**:
+   - Arquiteturas de redes neurais (e.g., ResNet, EfficientNet).
+   - Frameworks de aprendizado profundo como TensorFlow e PyTorch.
+5. **Validação e Teste**: Métodos para avaliar a eficácia do modelo, como divisão dos dados e análise de métricas (e.g., precisão e F1-score).
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+Essa abordagem garante que o sistema seja robusto, eficiente e de fácil integração com aplicações reais.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
 
-## Histórias de Usuários
+# Definição do Projeto
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+## Descrição Geral  
+O projeto consiste em desenvolver um sistema baseado em inteligência artificial e machine learning para identificar diferentes espécies de plantas a partir de imagens coletadas de diversas fontes, como redes sociais, Google, Kaggle e outros datasets especializados. O sistema utilizará técnicas de análise de imagem para reconhecer características como tipo de planta, formato de folhas, cores e tipos de flores, com o objetivo de fornecer uma identificação precisa e confiável.
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+---
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
-
 ### Requisitos Funcionais
+1. **Coleta de Imagens**  
+   - O sistema deve permitir a importação de imagens de múltiplas fontes, como redes sociais, plataformas de datasets e uploads manuais.
+   
+2. **Processamento de Imagens**  
+   - Deve realizar o pré-processamento das imagens, incluindo ajuste de resolução, remoção de ruído e normalização.
+   
+3. **Identificação de Plantas**  
+   - O sistema deve identificar as espécies de plantas com base em características visuais (folhas, flores, cores, etc.).
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+4. **Treinamento de Modelo de IA**  
+   - O sistema deve treinar modelos de machine learning com dados de treinamento variados, garantindo a precisão da identificação.
 
+5. **Interface de Usuário**  
+   - Deve fornecer uma interface amigável para usuários realizarem uploads de imagens e visualizarem os resultados da análise.
 
-### Requisitos não Funcionais
+6. **Exportação de Resultados**  
+   - O sistema deve permitir a exportação dos resultados em formatos como PDF ou CSV.
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+---
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
+### Requisitos Não Funcionais
+1. **Desempenho**  
+   - O sistema deve processar uma imagem em menos de 5 segundos para fornecer os resultados da identificação.
 
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+2. **Escalabilidade**  
+   - Deve ser capaz de lidar com grandes volumes de dados e aumentar a capacidade com o crescimento da base de usuários.
 
-## Restrições
+3. **Confiabilidade**  
+   - O sistema deve manter uma taxa de acurácia mínima de 90% na identificação de espécies.
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+4. **Compatibilidade**  
+   - Deve ser acessível por dispositivos móveis e desktops, suportando navegadores modernos.
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+5. **Segurança**  
+   - Garantir que os dados dos usuários e as imagens processadas sejam protegidos, atendendo a normas como LGPD e GDPR.
 
+6. **Disponibilidade**  
+   - O sistema deve estar disponível 24/7 com no máximo 1% de downtime mensal.
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
+---
 
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+### Requisitos Tecnológicos
+- **Linguagens e Ferramentas**: Python, TensorFlow, OpenCV, Flask/Django.  
+- **Banco de Dados**: MongoDB ou PostgreSQL.  
+- **Infraestrutura**: Serviços em nuvem como AWS, Google Cloud ou Azure.  
+- **Integração**: APIs para coleta de dados de redes sociais e plataformas externas.
+
+---
+
+Com base nesses requisitos, o projeto será estruturado para atender às necessidades de diferentes públicos e garantir eficiência, precisão e acessibilidade na identificação de plantas.

@@ -1,77 +1,50 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
+<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do projeto</a></span>
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-## Diagrama de componentes
+## Diagrama de Componentes
 
-Diagrama que permite a modelagem física de um sistema, através da visão dos seus componentes e relacionamentos entre os mesmos.
+O diagrama a seguir ilustra a arquitetura da solução, descrevendo os componentes principais e seus relacionamentos. A solução implementada envolve o treinamento e a aplicação de um modelo de aprendizado de máquina para reconhecimento de plantas em imagens, com o uso de técnicas de Visão Computacional.
 
-Exemplo: 
-
-Os componentes que fazem parte da solução são apresentados na Figura XX.
-
-![Diagrama de Componentes](img/componentes.png)
+![Diagrama de Componentes](img/arquiteutra.webp)
 <center>Figura XX - Arquitetura da Solução</center>
 
 A solução implementada conta com os seguintes módulos:
-- **Navegador** - Interface básica do sistema  
-  - **Páginas Web** - Conjunto de arquivos HTML, CSS, JavaScript e imagens que implementam as funcionalidades do sistema.
-   - **Local Storage** - armazenamento mantido no Navegador, onde são implementados bancos de dados baseados em JSON. São eles: 
-     - **Canais** - seções de notícias apresentadas 
-     - **Comentários** - registro de opiniões dos usuários sobre as notícias
-     - **Preferidas** - lista de notícias mantidas para leitura e acesso posterior
- - **News API** - plataforma que permite o acesso às notícias exibidas no site.
- - **Hospedagem** - local na Internet onde as páginas são mantidas e acessadas pelo navegador. 
+
+- **Coleta de Dados**: Responsável pela coleta de imagens de plantas de diversas fontes, como redes sociais, Google, Kaggle e outros datasets especializados.
+  - **Fontes de Dados**: As imagens de plantas são capturadas a partir de diferentes fontes, incluindo plataformas como redes sociais e sites especializados em datasets de plantas.
+  - **Armazenamento e Pré-processamento**: As imagens são processadas e armazenadas em um formato adequado para treinamento do modelo.
+  
+- **Modelo de Reconhecimento de Plantas**: O core da solução, onde o modelo de aprendizado de máquina é treinado para reconhecer diferentes espécies de plantas a partir das imagens.
+  - **Pré-processamento**: Normalização e transformação das imagens para um formato padrão antes de alimentar o modelo.
+  - **Treinamento de Modelo**: O modelo é treinado utilizando redes neurais convolucionais (CNNs), com uma arquitetura que inclui camadas de convolução e pooling para extração de características das imagens.
+  - **Avaliação do Modelo**: O modelo é avaliado com um conjunto de dados de teste para verificar a precisão e confiabilidade das previsões.
+
+- **Integração com Dispositivos IoT**: O modelo treinado é integrado a dispositivos IoT, como câmeras que capturam imagens de plantas, permitindo que o sistema identifique e classifique as espécies em tempo real.
+  - **Aplicação IoT**: Câmeras conectadas a dispositivos IoT capturam imagens das plantas e as enviam para o modelo de reconhecimento para análise.
+  
+- **Hospedagem e Deploy**: A aplicação é hospedada em um ambiente de nuvem para garantir a acessibilidade e escalabilidade da solução.
+  - **Firebase**: Utilizado para armazenar e gerenciar dados, como registros de plantas e classificações.
+  - **GCP (Google Cloud Platform)**: Hospedagem do modelo e infraestrutura de backend, permitindo a execução e o treinamento do modelo de forma eficiente.
 
 > **Links Úteis**:
 >
-> - [Whimsical](https://whimsical.com/)
-
-Inclua um diagrama da solução e descreva os módulos e as tecnologias que fazem parte da solução. Discorra sobre o diagrama.
-
-A imagem a seguir ilustra a o fluxo do usuário em nossa solução. Assim
-que o usuário entra na plataforma, ele é apresentado à tela inicial
-(Tela 1) onde ele é confrontado com as opões de editar seu perfil ou
-então visualizar sua galeria.
-
-Caso ele opte por seguir pelo primeiro caminho (Editar Perfil), ele é
-redirecionado para a tela de edição de perfil (Tela 2), onde pode
-atualizar seus dados cadastrais. Nessa tela, o usuário também pode
-escolher para editar sua foto de perfil. Ao selecionar essa opção, ele é
-redirecionado para a Tela 3, onde ele a imagem expandida do perfil do
-usuário é mostrado. Ao selecionar a opção para atualizar a imagem, uma
-nova janela abre pedindo para o usuário fazer o upload da nova foto.
-Assim que o processo termina um pop-up exibe o status para o usuário
-(Tela 4) e o usuário é redirecionado para a Tela 2.
-
-Caso o usuário opte seguir pelo segundo caminho (Visualizar Galeria) ele
-é redirecionado para a Tela 5 com todas as fotos que o usuário possui. O
-usuário pode clicar em um post qualquer para visualizar os detalhes do
-post (Tela 6). Nessa tela, ele pode então escolher editar o post, sendo
-redirecionado para a Tela 7. Ao editar as informações, o usuário pode
-escolher salvar ou deletar o post. Em ambos os casos o status é
-notificado para o usuário (Tela 8) e em seguida ele é redirecionado
-para a Tela 2.
-
-![Exemplo de UserFlow](img/userflow.jpg)
-
+> - [Kaggle](https://www.kaggle.com/)
+> - [TensorFlow](https://www.tensorflow.org/)
+> - [Google Cloud Platform](https://cloud.google.com/)
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+A solução é composta por um conjunto de tecnologias e ferramentas que permitem a coleta de dados, treinamento do modelo de aprendizado de máquina, e integração com dispositivos IoT. As principais tecnologias incluem:
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+- **Python**: Linguagem de programação usada para implementar o modelo e os scripts de pré-processamento e treinamento.
+- **TensorFlow/Keras**: Frameworks de aprendizado de máquina utilizados para construir e treinar o modelo de reconhecimento de plantas.
+- **OpenCV**: Biblioteca de visão computacional para o pré-processamento das imagens, como redimensionamento e conversão de formatos.
+- **Firebase**: Para armazenar dados relacionados às plantas e permitir a integração com dispositivos IoT.
+- **Google Cloud Platform (GCP)**: Infraestrutura de nuvem utilizada para hospedar e executar o modelo de aprendizado de máquina.
+- **IoT Devices (Câmeras)**: Dispositivos conectados que capturam imagens de plantas para análise em tempo real pelo modelo.
 
+Esse é o objetivo final do projeto.
 
-## Hospedagem
-
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)

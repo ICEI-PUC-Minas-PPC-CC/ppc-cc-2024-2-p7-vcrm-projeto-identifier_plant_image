@@ -41,10 +41,7 @@ O projeto consiste em desenvolver um sistema baseado em inteligência artificial
 4. **Treinamento de Modelo de IA**  
    - O sistema deve treinar modelos de machine learning com dados de treinamento variados, garantindo a precisão da identificação.
 
-5. **Interface de Usuário**  
-   - Deve fornecer uma interface amigável para usuários realizarem uploads de imagens e visualizarem os resultados da análise.
-
-6. **Exportação de Resultados**  
+5. **Exportação de Resultados**  
    - O sistema deve permitir a exportação dos resultados em formatos como PDF ou CSV.
 
 ---

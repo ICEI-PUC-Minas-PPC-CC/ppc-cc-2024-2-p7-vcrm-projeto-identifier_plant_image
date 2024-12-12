@@ -36,11 +36,11 @@ Validar as funcionalidades principais do sistema, desde o pré-processamento de 
 
 | **ID do Teste** | **Descrição**                                                   | **Entrada**              | **Saída Esperada**                                           | **Status** |
 |------------------|-----------------------------------------------------------------|--------------------------|-------------------------------------------------------------|------------|
-| **UT-01**        | Verificar carregamento de imagens e rótulos (`make_data`)       | Diretório de imagens     | Arquivo `data.pickle` com dados pré-processados             | A ser testado |
-| **UT-02**        | Testar a normalização de imagens (`load_data`)                 | Arquivo `data.pickle`    | Matriz de imagens com valores normalizados                 | A ser testado |
-| **IT-01**        | Testar treinamento do modelo CNN                               | Dados normalizados       | Arquivo `my_model.h5` salvo corretamente                   | A ser testado |
-| **IT-02**        | Verificar a avaliação do modelo no conjunto de teste           | Dados de teste           | Métrica de precisão (e.g., >85% accuracy)                  | A ser testado |
-| **VT-01**        | Validar previsões para imagens de teste                        | Conjunto de imagens      | Gráfico `plot_4.png` com previsões corretas                | A ser testado |
+| **UT-01**        | Verificar carregamento de imagens e rótulos (`make_data`)       | Diretório de imagens     | Arquivo `data.pickle` com dados pré-processados             | Testado |
+| **UT-02**        | Testar a normalização de imagens (`load_data`)                 | Arquivo `data.pickle`    | Matriz de imagens com valores normalizados                 | Testado |
+| **IT-01**        | Testar treinamento do modelo CNN                               | Dados normalizados       | Arquivo `my_model.h5` salvo corretamente                   | Testado |
+| **IT-02**        | Verificar a avaliação do modelo no conjunto de teste           | Dados de teste           | Métrica de precisão (e.g., >85% accuracy)                  | Testado |
+| **VT-01**        | Validar previsões para imagens de teste                        | Conjunto de imagens      | Gráfico `.png` com previsões corretas                | Testado |
 | **UT-03**        | Testar comportamento com dados corrompidos ou ausentes         | Arquivo de dados inválido| Tratamento de exceção sem travar o sistema                 | A ser testado |
 
 ---

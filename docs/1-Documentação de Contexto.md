@@ -1,4 +1,4 @@
-### Apresentação do Projeto: Identificação de Plantas por Imagem  
+### Documentação de Contexto  
 
 Este projeto tem como objetivo principal identificar espécies de plantas a partir de imagens utilizando aprendizado de máquina e redes neurais convolucionais (CNN). O sistema foi projetado para processar e classificar imagens em oito categorias distintas com alta precisão.
 
